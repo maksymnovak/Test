@@ -1,0 +1,303 @@
+{% schema %}
+{
+  "name": "Announced Bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bar settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color_bar",
+      "label": "Background Color",
+      "default": "#FF0303"
+    },
+    {
+      "type": "range",
+      "label": "Padding Top",
+      "id": "padding_top_bar",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "label": "Padding Right",
+      "id": "padding_right_bar",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "label": "Padding Bottom",
+      "id": "padding_bottom_bar",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "label": "Padding Left",
+      "id": "padding_left_bar",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "label": "Position",
+      "id": "position_bar",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "range",
+      "label": "Margin (px)",
+      "id": "margin_bar",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Text settings"
+    },
+    {
+      "type": "color",
+      "id": "text_color_text",
+      "label": "Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "range",
+      "id": "font_size_text",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "label": "Font Weight",
+      "id": "font_weight_text",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        },
+        {
+          "value": "lighter",
+          "label": "Lighter"
+        },
+        {
+          "value": "bolder",
+          "label": "Bolder"
+        },
+        {
+          "value": "100",
+          "label": "100"
+        },
+        {
+          "value": "200",
+          "label": "200"
+        },
+        {
+          "value": "300",
+          "label": "300"
+        },
+        {
+          "value": "400",
+          "label": "400 (Normal)"
+        },
+        {
+          "value": "500",
+          "label": "500"
+        },
+        {
+          "value": "600",
+          "label": "600"
+        },
+        {
+          "value": "700",
+          "label": "700 (Bold)"
+        },
+        {
+          "value": "800",
+          "label": "800"
+        },
+        {
+          "value": "900",
+          "label": "900"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "color",
+      "id": "text_color_button",
+      "label": "Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "background_color_button",
+      "label": "Background Color",
+      "default": "#000"
+    },
+    {
+      "type": "number",
+      "label": "Border Radius (px)",
+      "id": "border_radius_button",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "font_size_button",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "label": "Font Weight",
+      "id": "font_weight_button",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        },
+        {
+          "value": "lighter",
+          "label": "Lighter"
+        },
+        {
+          "value": "bolder",
+          "label": "Bolder"
+        },
+        {
+          "value": "100",
+          "label": "100"
+        },
+        {
+          "value": "200",
+          "label": "200"
+        },
+        {
+          "value": "300",
+          "label": "300"
+        },
+        {
+          "value": "400",
+          "label": "400 (Normal)"
+        },
+        {
+          "value": "500",
+          "label": "500"
+        },
+        {
+          "value": "600",
+          "label": "600"
+        },
+        {
+          "value": "700",
+          "label": "700 (Bold)"
+        },
+        {
+          "value": "800",
+          "label": "800"
+        },
+        {
+          "value": "900",
+          "label": "900"
+        }
+      ],
+      "default": "normal"
+    }
+
+
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  #DiscountButton:hover {
+    background-color: #ff6600;
+  }
+{% endstylesheet %}
+<style>
+  #DiscountButton {
+    color: {{ section.settings.text_color_button}};
+    background-color: {{ section.settings.background_color_button }};
+    padding: 5px 10px;
+    border: none;
+    border-radius: {{section.settings.border_radius_button}}px;
+    cursor: pointer;
+    font-weight:{{section.settings.font_weight_button}};
+    font-size:{{section.settings.font_size_button}}px;
+  }
+  .Announced-bar p {
+    font-size: {{ section.settings.font_size_text }}px;
+    margin: 0;
+    color:{{ section.settings.text_color_text }};
+    font-weight:{{section.settings.font_weight_text}};
+  }
+   .Announced-bar {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: {{ section.settings.background_color_bar }};
+  padding-top: {{ section.settings.padding_top_bar }}px;
+  padding-bottom: {{ section.settings.padding_bottom_bar }}px;
+  padding-left: {{ section.settings.padding_left_bar }}px;
+  padding-right: {{ section.settings.padding_right_bar }}px;
+  position: sticky;
+  {{ section.settings.position_bar }}: {{ section.settings.margin_bar }}px;
+
+  }
+</style>
+
+<div class="Announced-bar">
+  <p>Welcome</p>
+  <button id="DiscountButton">Discount code</button>
+</div>
+<script src="{{ 'discountButton.js' | asset_url }}"></script>
+
+{% javascript %}
+{% endjavascript %}
